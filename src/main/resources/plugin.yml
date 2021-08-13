@@ -1,0 +1,30 @@
+name: ${project.name}
+main: ${project.groupId}.${project.artifactId}
+version: ${project.version}
+author: ${project.author}
+depend: [MassiveCore]
+
+permissions:
+  coupons.basecommand: { description: coupons base command, default: false }
+  coupons.add: { description: give a player a coupon, default: false }
+  coupons.clear: { description: clear coupons for players, default: false }
+  coupons.list: { description: list a players coupons, default: false }
+  coupons.*:
+    children:
+      coupons.basecommand: true
+      coupons.add: true
+      coupons.clear: true
+      coupons.list: true
+  coupons.kit.op:
+    default: op
+    children:
+      coupons.*: true
+  coupons.kit.rank0:
+    default: false
+    children:
+      coupons.basecommand: true
+      coupons.list: true
+  coupons.kit.default:
+    default: true
+    children:
+      coupons.kit.rank0: true
