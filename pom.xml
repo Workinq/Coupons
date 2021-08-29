@@ -50,6 +50,11 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <!-- MassiveCore -->
+        <repository>
+            <id>local-repo</id>
+            <url>file://${project.basedir}/repo</url>
+        </repository>
     </repositories>
 
     <dependencies>
